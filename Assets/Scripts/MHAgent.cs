@@ -4,44 +4,36 @@ using MLAgents;
 public class MHAgent : Agent
 {
     public MHArea area;
-    Rigidbody[] bodies;
-    public float maxForce = 10;
+    public float maxForce = 100;
 
     void Start()
     {
-        bodies = new Rigidbody[area.numberOfCubes];
-        foreach (GameObject cube in area.cubes)
-        {
-            bodies[0] = cube.GetComponent<Rigidbody>();
-        }
     }
 
     public override void CollectObservations()
     {
-        foreach (Rigidbody body in bodies)
+        foreach (GameObject cube in area.cubes)
         {
-            AddVectorObs(body.velocity);
+            AddVectorObs(cube.GetComponent<Rigidbody>().velocity.magnitude);
         }
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
-        SetReward(1.0f / this.agentParameters.maxStep);
+        SetReward(-1.0f / this.agentParameters.maxStep);
 
-        int bodyIndex = PickFromNChoices(Mathf.Clamp(vectorAction[0], -1, 1), -1, 1, bodies.Length);
+        int bodyIndex = PickFromNChoices(Mathf.Clamp(vectorAction[0], -1, 1), -1, 1, area.numberOfCubes);
         Vector3 controlSignal = Vector3.zero;
         controlSignal.x = vectorAction[1];
-        controlSignal.z = vectorAction[2];
-        controlSignal.y = vectorAction[3];
-        bodies[bodyIndex].AddForce(Vector3.Normalize(controlSignal) * maxForce);
+        area.cubes[bodyIndex].GetComponent<Rigidbody>().AddForce(Vector3.Normalize(controlSignal) * maxForce);
 
-        float decision = Mathf.Clamp(vectorAction[4], -1, 1);
+        float decision = Mathf.Clamp(vectorAction[2], -1, 1);
         int decisionIndex = -1; //default: undecided
         float separator = 1.0f / area.numberOfCubes;
-        if (decision >= 0) //decided
+        if (decision > 0) //decided
         {
             decisionIndex = PickFromNChoices(decision, 0, 1, area.numberOfCubes);
-            SetReward(1 - decisionIndex * separator);
+            SetReward(1 - decisionIndex * separator - 2);
             Done();
         }
 
@@ -49,10 +41,12 @@ public class MHAgent : Agent
 
     public override void AgentReset()
     {
+        area.ResetArea();
     }
 
     public override void AgentOnDone()
     {
+        this.AgentReset();
     }
 
 
@@ -63,7 +57,6 @@ public class MHAgent : Agent
      */
     private int PickFromNChoices(float flo, float min, float max, int n)
     {
-        int pick = -1; //Not picked yet
 
         if (flo < min || flo > max)
         {
@@ -72,17 +65,17 @@ public class MHAgent : Agent
         }
 
         //Resize range to 0, 1
-        flo -= min; max -= min;
-        flo /= max;
+        float range = max - min;
+        flo = (flo - min) / range;
 
-        float separator = 1.0f / area.numberOfCubes;
+        float separator = 1.0f / n;
         for (int i = 1; i <= n; i++)
         {
             if (flo <= i * separator) //so i*separator = 1/n, 2/n, 3/n, ... , (n-1)/n, 1
             {
-                pick = i - 1;
+                return i - 1;
             }
         }
-        return pick;
+        return 0;
     }
 }

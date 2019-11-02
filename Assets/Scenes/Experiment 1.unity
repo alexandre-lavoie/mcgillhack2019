@@ -196,8 +196,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85012994}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0.04642848, y: 0.92062956, z: -0.11550389, w: -0.37006018}
+  m_LocalPosition: {x: 29.647089, y: 6.345928, z: 33.32802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -294,7 +294,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &399525868
+--- !u!1001 &917671079
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -361,6 +361,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2275756799674254268, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d,
+        type: 3}
+      propertyPath: agentParameters.numberOfActionsBetweenDecisions
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d, type: 3}
 --- !u!1 &1022975960
@@ -409,7 +414,12 @@ MonoBehaviour:
     timeScale: 1
     targetFrameRate: 60
   resetParameters:
-    m_ResetParameters: []
+    m_ResetParameters:
+    - key: beta
+      value: 0
+    - key: number_of_cubes
+      value: 3
+  mhAreas: []
 --- !u!4 &1022975962
 Transform:
   m_ObjectHideFlags: 0

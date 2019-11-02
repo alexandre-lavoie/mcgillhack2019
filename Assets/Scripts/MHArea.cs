@@ -8,45 +8,53 @@ public class MHArea : Area
     public MHAgent mhAgent;
     public List<GameObject> cubes;
     public GameObject cubePrefab;
-    public int numberOfCubes = 100;
+    public int numberOfCubes = 2;
     public float beta = 0;
+
     public override void ResetArea()
     {
-        createEnvironment();
+        resetCubes();
     }
 
     void Start()
-    {
-        createEnvironment();
-    }
-
-    void createEnvironment()
     {
         createCubes();
     }
 
     float randomMass()
     {
-        return 50 * beta + 100 * Random.Range(0f, 1f - beta);
+        return Mathf.Clamp(50 * beta + 100 * Random.Range(0f, 1f - beta), 50, 1000);
+    }
+
+    void resetCubes()
+    {
+        if(cubes.Count == numberOfCubes)
+        {
+            for (int i = 0; i < numberOfCubes; i++)
+            {
+                cubes[i].transform.position = new Vector3(0, i * 5.0f + 1.5f, 0);
+                cubes[i].transform.rotation = Quaternion.Euler(Vector3.zero);
+                cubes[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+                cubes[i].GetComponent<Rigidbody>().mass = randomMass();
+            }
+
+            cubes.Sort((x, y) => ((y.GetComponent<Rigidbody>().mass > x.GetComponent<Rigidbody>().mass) ? 1 : -1));
+        } else
+        {
+            createCubes();
+        }
+
     }
 
     void createCubes()
     {
-        if (cubes.Count > 0)
-        {
-            foreach (GameObject cube in cubes)
-            {
-                Destroy(cube);
-            }
-        }
-
-        cubes = new List<GameObject>();
-
         for (int i = 0; i < numberOfCubes; i++)
         {
-            GameObject temporaryCube = Instantiate(cubePrefab, new Vector3(0, i * 5.0f + 0.51f,0), cubePrefab.transform.rotation);
+            GameObject temporaryCube = Instantiate(cubePrefab, new Vector3(0, i * 5.0f + 1.5f,0), Quaternion.Euler(Vector3.zero));
 
             temporaryCube.GetComponent<Rigidbody>().mass = randomMass();
+
+            temporaryCube.transform.parent = this.transform;
 
             cubes.Add(temporaryCube);
         }
