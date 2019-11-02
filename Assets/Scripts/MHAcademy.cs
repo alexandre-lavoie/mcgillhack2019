@@ -1,13 +1,11 @@
 using UnityEngine;
+using System.Collections.Generic;
 using MLAgents;
 
 public class MHAcademy : Academy
 {
-    public MHAgent mhAgent;
-    public GameObject[] cubes;
-    public GameObject cubePrefab;
     public override void AcademyReset()
     {
-
+        
     }
 }

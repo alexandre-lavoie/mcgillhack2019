@@ -336,9 +336,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5359593258530924900}
-  - component: {fileID: 7263549347029799260}
+  - component: {fileID: 4181497612926018449}
   m_Layer: 0
-  m_Name: Academy
+  m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,7 +365,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7263549347029799260
+--- !u!114 &4181497612926018449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,28 +374,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5359593258530924901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc88c3f5587a9e843b4035ef406b1d1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 302c63a1867eec2449cbb343503ee729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  broadcastHub:
-    broadcastingBrains: []
-    m_BrainsToControl: []
-  m_TrainingConfiguration:
-    width: 80
-    height: 80
-    qualityLevel: 1
-    timeScale: 100
-    targetFrameRate: -1
-  m_InferenceConfiguration:
-    width: 1280
-    height: 720
-    qualityLevel: 5
-    timeScale: 1
-    targetFrameRate: 60
-  resetParameters:
-    m_ResetParameters: []
-  mhAgent: {fileID: 0}
+  mhAgent: {fileID: 2275756799674254268}
   cubes: []
+  cubePrefab: {fileID: 5237875371855673726, guid: 0590a50d241f7df4fa982c9aa7487ca2,
+    type: 3}
+  numberOfCubes: 2
 --- !u!1 &5518521783015798816
 GameObject:
   m_ObjectHideFlags: 0
