@@ -83,6 +83,6 @@ public class MHAgent : Agent
                 pick = i - 1;
             }
         }
-        return pick
+        return pick;
     }
 }
