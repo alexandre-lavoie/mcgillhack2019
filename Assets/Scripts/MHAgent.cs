@@ -20,7 +20,7 @@ public class MHAgent : Agent
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
-        SetReward(-1.0f / this.agentParameters.maxStep);
+        AddReward(-1.0f / this.agentParameters.maxStep);
 
         int bodyIndex = PickFromNChoices(Mathf.Clamp(vectorAction[0], -1, 1), -1, 1, area.numberOfCubes);
         Vector3 controlSignal = Vector3.zero;
@@ -28,12 +28,19 @@ public class MHAgent : Agent
         area.cubes[bodyIndex].GetComponent<Rigidbody>().AddForce(Vector3.Normalize(controlSignal) * maxForce);
 
         float decision = Mathf.Clamp(vectorAction[2], -1, 1);
-        int decisionIndex = -1; //default: undecided
         float separator = 1.0f / area.numberOfCubes;
         if (decision > 0) //decided
         {
-            decisionIndex = PickFromNChoices(decision, 0, 1, area.numberOfCubes);
-            SetReward(1 - decisionIndex * separator - 2);
+            int decisionIndex = PickFromNChoices(decision, 0, 1, area.numberOfCubes);
+
+            if (decisionIndex == 0)
+            {
+                AddReward(1);
+            } else
+            {
+                AddReward(-decisionIndex);
+            }
+
             Done();
         }
 

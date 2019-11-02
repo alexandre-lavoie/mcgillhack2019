@@ -32,7 +32,7 @@ public class MHArea : Area
         {
             for (int i = 0; i < numberOfCubes; i++)
             {
-                cubes[i].transform.position = new Vector3(0, i * 5.0f + 1.5f, 0);
+                cubes[i].transform.position = new Vector3(this.transform.position.x, i * 5.0f + 1.5f, this.transform.position.z);
                 cubes[i].transform.rotation = Quaternion.Euler(Vector3.zero);
                 cubes[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
                 cubes[i].GetComponent<Rigidbody>().mass = randomMass();
@@ -50,7 +50,7 @@ public class MHArea : Area
     {
         for (int i = 0; i < numberOfCubes; i++)
         {
-            GameObject temporaryCube = Instantiate(cubePrefab, new Vector3(0, i * 5.0f + 1.5f,0), Quaternion.Euler(Vector3.zero));
+            GameObject temporaryCube = Instantiate(cubePrefab, new Vector3(this.transform.position.x, i * 5.0f + 1.5f, this.transform.position.z), Quaternion.Euler(Vector3.zero));
 
             temporaryCube.GetComponent<Rigidbody>().mass = randomMass();
 

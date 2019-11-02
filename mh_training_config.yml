@@ -1,7 +1,7 @@
 MHLearning:
     batch_size: 32
     normalize: false
-    num_layers: 1
+    num_layers: 4
     hidden_units: 20
     beta: 5.0e-3
     buffer_size: 256

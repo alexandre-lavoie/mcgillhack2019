@@ -30,5 +30,5 @@ conda activate ml-agents
 Then, cd to the directory where you cloned ml-agents.
 
 ```
-mlagents-learn <trainer-config-file> --run-id=<run-identifier> --train
+mlagents-learn config/mh_training_config.yml --curriculum=config/curricula/mh/ --run-id=mh-1 --train
 ```
