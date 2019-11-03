@@ -1,5 +1,6 @@
 using UnityEngine;
 using MLAgents;
+using System.Collections.Generic;
 
 public class MHAgent : Agent
 {
@@ -32,13 +33,15 @@ public class MHAgent : Agent
         if (decision > 0) //decided
         {
             int decisionIndex = PickFromNChoices(decision, 0, 1, area.numberOfCubes);
-
-            if (decisionIndex == 0)
+            Dictionary<int, int> answerKey = area.getAnswerKey();
+            // If the selected object index is the heaviest, thus 0 rank, reward agent.
+            if (answerKey[decisionIndex] == 0)
             {
                 AddReward(1);
             } else
             {
-                AddReward(-decisionIndex);
+                // Else remove according to the how wrong it is.
+                AddReward(-answerKey[decisionIndex]);
             }
 
             Done();

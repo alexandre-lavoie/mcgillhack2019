@@ -37,8 +37,6 @@ public class MHArea : Area
                 cubes[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
                 cubes[i].GetComponent<Rigidbody>().mass = randomMass();
             }
-
-            cubes.Sort((x, y) => ((y.GetComponent<Rigidbody>().mass > x.GetComponent<Rigidbody>().mass) ? 1 : -1));
         } else
         {
             createCubes();
@@ -58,7 +56,26 @@ public class MHArea : Area
 
             cubes.Add(temporaryCube);
         }
+    }
 
-        cubes.Sort((x,y) => ((y.GetComponent<Rigidbody>().mass > x.GetComponent<Rigidbody>().mass) ? 1 : -1));
+    public Dictionary<int, int> getAnswerKey()
+    {
+        List<int> indices = new List<int>();
+
+        for (int i=0; i<numberOfCubes; i++)
+        {
+            indices.Add(i);
+        }
+
+        indices.Sort((x, y) => ((cubes[y].GetComponent<Rigidbody>().mass > cubes[x].GetComponent<Rigidbody>().mass) ? 1 : -1));
+
+        Dictionary<int, int> reversedIndices = new Dictionary<int, int>();
+
+        for (int i = 0; i < numberOfCubes; i++)
+        {
+            reversedIndices.Add(indices[i], i);
+        }
+        // Returns a Dictionary where you give it the object index as a key and returns mass ranking.
+        return reversedIndices;
     }
 }
