@@ -1,11 +1,11 @@
 {
     "measure" : "reward",
-    "thresholds" : [0],
+    "thresholds" : [0.5, 0.75],
     "min_lesson_length" : 100,
     "signal_smoothing" : true, 
     "parameters" : 
     {
-        "beta" : [1, 1],
-        "number_of_cubes" : [2, 2]
+        "beta" : [3, 5, 10],
+        "number_of_cubes" : [4, 4, 4]
     }
 }

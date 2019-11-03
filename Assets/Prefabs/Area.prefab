@@ -420,7 +420,7 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   area: {fileID: 4181497612926018449}
-  maxForce: 1000
+  maxForce: 50
 --- !u!1 &5278669741201417862
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +572,7 @@ MonoBehaviour:
     type: 3}
   numberOfCubes: 0
   beta: 0
+  logString: 
 --- !u!1 &5518521783015798816
 GameObject:
   m_ObjectHideFlags: 0

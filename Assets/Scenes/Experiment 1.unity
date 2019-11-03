@@ -270,6 +270,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4181497612926018449, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d,
+        type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 193388838713222457, guid: a6339dc866b9acc4684b750e304d5f44,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d, type: 3}
 --- !u!1 &362983256
@@ -430,6 +436,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4181497612926018449, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d,
+        type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 193388838713222457, guid: a6339dc866b9acc4684b750e304d5f44,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d, type: 3}
 --- !u!1001 &587204678
@@ -499,6 +511,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4181497612926018449, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d,
+        type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 193388838713222457, guid: a6339dc866b9acc4684b750e304d5f44,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d, type: 3}
 --- !u!1001 &856503430
@@ -568,6 +586,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4181497612926018449, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d,
+        type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 193388838713222457, guid: a6339dc866b9acc4684b750e304d5f44,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d, type: 3}
 --- !u!1 &1022975960
@@ -621,7 +645,7 @@ MonoBehaviour:
     - key: beta
       value: 0
     - key: number_of_cubes
-      value: 3
+      value: 4
   mhAreas: []
 --- !u!4 &1022975962
 Transform:
@@ -704,6 +728,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4181497612926018449, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d,
+        type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 193388838713222457, guid: a6339dc866b9acc4684b750e304d5f44,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d, type: 3}
 --- !u!1001 &1602535576
@@ -773,6 +803,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4181497612926018449, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d,
+        type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 193388838713222457, guid: a6339dc866b9acc4684b750e304d5f44,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d, type: 3}
 --- !u!1001 &1982597506
@@ -842,6 +878,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4181497612926018449, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d,
+        type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 193388838713222457, guid: a6339dc866b9acc4684b750e304d5f44,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d, type: 3}
 --- !u!1001 &2035520392
@@ -911,5 +953,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4181497612926018449, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d,
+        type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 193388838713222457, guid: a6339dc866b9acc4684b750e304d5f44,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783cfcf162a2edb4396aaa3e6d1a2e1d, type: 3}

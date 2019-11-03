@@ -6,6 +6,7 @@ public class MHAgent : Agent
 {
     public MHArea area;
     public float maxForce = 100;
+    private string logString = "";
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class MHAgent : Agent
     {
         foreach (GameObject cube in area.cubes)
         {
-            AddVectorObs(cube.GetComponent<Rigidbody>().velocity.magnitude);
+            AddVectorObs(cube.GetComponent<Rigidbody>().velocity.x);
         }
     }
 
@@ -27,6 +28,8 @@ public class MHAgent : Agent
         Vector3 controlSignal = Vector3.zero;
         controlSignal.x = vectorAction[1];
         area.cubes[bodyIndex].GetComponent<Rigidbody>().AddForce(Vector3.Normalize(controlSignal) * maxForce);
+
+        area.logString += bodyIndex + ", ";
 
         float decision = Mathf.Clamp(vectorAction[2], -1, 1);
         float separator = 1.0f / area.numberOfCubes;
@@ -43,10 +46,8 @@ public class MHAgent : Agent
                 // Else remove according to the how wrong it is.
                 AddReward(-answerKey[decisionIndex]);
             }
-
             Done();
         }
-
     }
 
     public override void AgentReset()
