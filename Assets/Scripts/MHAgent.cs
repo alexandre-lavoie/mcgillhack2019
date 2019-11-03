@@ -22,7 +22,13 @@ public class MHAgent : Agent
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
-        AddReward(-1.0f / this.agentParameters.maxStep);
+        if(GetStepCount() > this.agentParameters.maxStep / 2.0f)
+        {
+            AddReward(-1.0f / this.agentParameters.maxStep);
+        } else
+        {
+            AddReward(1.0f / this.agentParameters.maxStep);
+        }
 
         int bodyIndex = PickFromNChoices(Mathf.Clamp(vectorAction[0], -1, 1), -1, 1, area.numberOfCubes);
         Vector3 controlSignal = Vector3.zero;

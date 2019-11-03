@@ -626,8 +626,7 @@ MonoBehaviour:
   broadcastHub:
     broadcastingBrains:
     - {fileID: 11400000, guid: f82d028487f210d4a9ec7b5fa7e52ac5, type: 2}
-    m_BrainsToControl:
-    - {fileID: 11400000, guid: f82d028487f210d4a9ec7b5fa7e52ac5, type: 2}
+    m_BrainsToControl: []
   m_TrainingConfiguration:
     width: 80
     height: 80
@@ -643,9 +642,9 @@ MonoBehaviour:
   resetParameters:
     m_ResetParameters:
     - key: beta
-      value: 0
+      value: 3
     - key: number_of_cubes
-      value: 4
+      value: 2
   mhAreas: []
 --- !u!4 &1022975962
 Transform:

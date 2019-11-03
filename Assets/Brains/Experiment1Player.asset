@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Experiment1Player
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 4
+    vectorObservationSize: 2
     numStackedVectorObservations: 1
     vectorActionSize: 03000000
     cameraResolutions: []

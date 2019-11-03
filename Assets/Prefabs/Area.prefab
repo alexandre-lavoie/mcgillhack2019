@@ -420,7 +420,7 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   area: {fileID: 4181497612926018449}
-  maxForce: 50
+  maxForce: 100
 --- !u!1 &5278669741201417862
 GameObject:
   m_ObjectHideFlags: 0
